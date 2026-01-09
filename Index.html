@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplementen Advies Quiz - Ontdek Jouw Perfecte Mix!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+            color: #333;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        header p {
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+        form {
+            max-width: 700px;
+            margin: 20px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        select, input[type="checkbox"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #f9f9f9;
+            font-size: 1em;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .checkbox-group label {
+            width: auto;
+            font-weight: normal;
+            color: #333;
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        #result {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 30px;
+            background: #e8f5e9;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #result h2 {
+            color: #2e7d32;
+            text-align: center;
+            font-size: 1.8em;
+        }
+        #recommendation {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .supplement-item {
+            background: #f1f8e9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 1px solid #c5e1a5;
+        }
+        .supplement-item strong {
+            color: #4CAF50;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 0.8em;
+            color: #777;
+        }
+        /* Voor mobiel: Zorg dat het responsive is */
+        @media (max-width: 600px) {
+            form, #result { padding: 20px; }
+            header h1 { font-size: 1.5em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌿 Supplementen Advies Quiz 🌿</h1>
+        <p>Beantwoord de vragen en ontdek jouw persoonlijke supplementenmix! Gebaseerd op jouw levensstijl, gezondheid en doelen. (Dit is geen medisch advies – raadpleeg altijd een arts.)</p>
+    </header>
+
+    <form id="quizForm">
+        <label for="age">Wat is je leeftijdsgroep? 🕰️</label>
+        <select id="age">
+            <option value="">Kies...</option>
+            <option value="under20">Onder 20</option>
+            <option value="20-30">20-30</option>
+            <option value="30-40">30-40</option>
+            <option value="40-50">40-50</option>
+            <option value="50-60">50-60</option>
+            <option value="over60">Boven 60</option>
+        </select>
+
+        <label for="gender">Wat is je geslacht? ⚥</label>
+        <select id="gender">
+            <option value="">Kies...</option>
+            <option value="male">Man</option>
+            <option value="female">Vrouw</option>
+            <option value="other">Anders/Geen voorkeur</option>
+        </select>
+
+        <label for="diet">Wat is je dieet? 🍎</label>
+        <select id="diet">
+            <option value="">Kies...</option>
+            <option value="omnivore">Alleseter</option>
+            <option value="vegetarian">Vegetarisch</option>
+            <option value="vegan">Vegan</option>
+            <option value="keto">Keto/low-carb</option>
+            <option value="paleo">Paleo</option>
+            <option value="other">Anders</option>
+        </select>
+
+        <label for="activity">Wat is je activiteitsniveau? 🏃‍♂️</label>
+        <select id="activity">
+            <option value="">Kies...</option>
+            <option value="sedentary">Zittend (weinig beweging)</option>
+            <option value="light">Licht actief (wandelen, etc.)</option>
+            <option value="moderate">Matig actief (sport 2-3x/week)</option>
+            <option value="high">Zeer actief (dagelijks sporten)</option>
+            <option value="athlete">Atleet/professioneel</option>
+        </select>
+
+        <label for="stress">Hoe hoog is je stressniveau? 😩</label>
+        <select id="stress">
+            <option value="">Kies...</option>
+            <option value="low">Laag</option>
+            <option value="medium">Gemiddeld</option>
+            <option value="high">Hoog</option>
+        </select>
+
+        <label>Gezondheidsdoelen (meerdere mogelijk) 🎯</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="goals" value="energy"> Meer energie</label>
+            <label><input type="checkbox" name="goals" value="immune"> Betere immuniteit</label>
+            <label><input type="checkbox" name="goals" value="muscle"> Spieropbouw</label>
+            <label><input type="checkbox" name="goals" value="weightloss"> Afvallen</label>
+            <label><input type="checkbox" name="goals" value="sleep"> Betere slaap</label>
+            <label><input type="checkbox" name="goals" value="digestion"> Betere spijsvertering</label>
+            <label><input type="checkbox" name="goals" value="skin"> Gezondere huid/haar</label>
+            <label><input type="checkbox" name="goals" value="mental"> Mentale focus</label>
+        </div>
+
+        <label>Specifieke gezondheidsproblemen (meerdere mogelijk) ⚕️</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="issues" value="anemia"> Bloedarmoede</label>
+            <label><input type="checkbox" name="issues" value="bones"> Botgezondheid</label>
+            <label><input type="checkbox" name="issues" value="heart"> Hartgezondheid</label>
+            <label><input type="checkbox" name="issues" value="thyroid"> Schildklierproblemen</label>
+            <label><input type="checkbox" name="issues" value="allergies"> Allergieën</label>
+            <label><input type="checkbox" name="issues" value="fatigue"> Chronische vermoeidheid</label>
+            <label><input type="checkbox" name="issues" value="none"> Geen</label>
+        </div>
+
+        <button type="button" onclick="getRecommendations()">Ontdek Mijn Supplementen! 🚀</button>
+    </form>
+
+    <div id="result">
+        <h2>Jouw Persoonlijke Aanbevelingen! ✨</h2>
+        <p id="recommendation"></p>
+    </div>
+
+    <footer>
+        <p>© 2026 Supplementen Advies - Affiliate links gebruikt. Raadpleeg een professional voor gezondheid.</p>
+    </footer>
+
+    <script>
+        function getRecommendations() {
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            const diet = document.getElementById('diet').value;
+            const activity = document.getElementById('activity').value;
+            const stress = document.getElementById('stress').value;
+            const goals = Array.from(document.querySelectorAll('input[name="goals"]:checked')).map(cb => cb.value);
+            const issues = Array.from(document.querySelectorAll('input[name="issues"]:checked')).map(cb => cb.value);
+
+            if (!age || !gender || !diet || !activity || !stress || goals.length === 0) {
+                alert('Vul alle verplichte velden in (leeftijd, geslacht, dieet, activiteit, stress en minstens één doel)!');
+                return;
+            }
+
+            let recs = '<div class="supplement-item"><strong>Welkom bij je persoonlijke plan!</strong> Op basis van je antwoorden (leeftijd: ' + age + ', geslacht: ' + gender + ', dieet: ' + diet + ', activiteit: ' + activity + ', stress: ' + stress + '), hier zijn aanbevelingen voor productgroepen:</div>';
+
+            // Basis aanbevelingen gebaseerd op combinaties
+            if (goals.includes('energy')) {
+                recs += '<div class="supplement-item"><strong>Voor meer energie: ⚡</strong> Vitamine B-complex. Aanbevolen voor ' + (stress === 'high' ? 'hoge stress' : 'algemene boost') + '. <a href="https://www.amazon.nl/s?k=vitamine+b+complex&tag=supplementen-21" target="_blank">Bekijk groep op Amazon.nl</a></div>';
+            }
+            if (goals.includes('immune')) {
+                recs += '<div class="supplement-item"><strong>Voor betere immuniteit: 🛡️</strong> Vitamine C en Zink. Ideaal als je ' + (diet === 'vegan' ? 'vegan eet' : 'algemeen') + '. <a href="https://www.amazon.nl/s?k=vitamine+c+zink&tag=supplementen-21" target="_blank">Bekijk groep op Amazon.nl</a></div>';
+            }
+            if (goals.includes('muscle')) {
+                recs += '<div class="supplement-item"><strong>Voor spieropbouw: 💪</strong> Proteïne poeder en Creatine. Goed voor ' + (activity === 'high' ? 'actieve levensstijl' : 'beginners') + '. <a href="https://www.amazon.nl/s?k=proteine+poeder+creatine&tag=supplementen-21" target="_blank">Bekijk groep op Amazon.nl</a></div>';
+            }
+            if (goals.includes('weightloss')) {
+                recs += '<div class="supplement-item"><strong>Voor afvallen: 🏋️</strong> Groene thee extract of CLA. Combineer met ' + (diet === 'keto' ? 'keto-dieet' : 'gezonde eetgewoontes') + '. <a href="https://www.amazon.nl/s?k=groene+thee+extract+cla&tag=supplementen-21" target="_blank">Bekijk groep op Amazon.nl</a></div>';
+            }
+            if (goals.includes('sleep')) {
+                recs += '<div class="supplement-item"><strong>Voor betere slaap: 😴</strong> Magnesium en Melatonine. Helpt bij ' + (stress === 'high' ? 'stress' : 'algemene rust') + '. <a href="https://www.amazon.nl/s?k=magnesium+melatonine&tag=supplementen-21" target="_blank">Bekijk groep op Amazon.nl</a></div>';
+            }
+            if (goals.includes('digestion')) {
+                recs += '<div class="supplement-item"><strong>Voor betere spijsvertering: 🍏</strong> Probiotica en Vezels. Essentieel voor ' + (diet === 'vegetarian' ? 'vegetariërs' : 'iedereen') + '. <a href="https://www.amazon.nl/s?k=probiotica+vezels&tag=supplementen-21" target="_blank">Bekijk groep op Amazon.nl</a></div>';
+            }
+            if (goals.includes('skin')) {
+                recs += '<div class="supplement-item"><strong>Voor gezonde huid/haar: ✨</strong> Biotine en Collageen. Goed voor ' + (age === 'over60' ? 'ouderen' : 'dagelijks gebruik') + '. <a href="https://www.amazon.nl/s?k=biotine+collageen&tag=supplementen-21" target="_blank">Bekijk groep op Amazon.nl</a></div>';
+            }
+            if (goals.includes('mental')) {
+                recs += '<div class="supplement-item"><strong>Voor mentale focus: 🧠</strong> Omega-3 en Ginkgo Biloba. Ondersteunt bij ' + (issues.includes('fatigue') ? 'vermoeidheid' : 'concentratie') + '. <a href="https://www.amazon.nl/s?k=omega-3+ginkgo+biloba&tag=supplementen-21" target="_blank">Bekijk groep op Amazon.nl</a></div>';
+            }
+
+            // Aanvullend gebaseerd op issues
+            if (issues.includes('anemia')) {
+                recs += '<div class="supplement-item"><strong>Voor bloedarmoede: 🩸</strong> IJzer en Foliumzuur. <a href="https://www.amazon.nl/s?k=ijzer+foliumzuur&tag=supplementen-21" target="_blank">Bekijk groep op Amazon.nl</a></div>';
+            }
+            if (issues.includes('bones')) {
+                recs += '<div class="supplement-item"><strong>Voor botgezondheid: 🦴</strong> Calcium en Vitamine D. <a href="https://www.amazon.nl/s?k=calcium+vitamine+d&tag=supplementen-21" target="_blank">Bekijk groep op Amazon.nl</a></div>';
+            }
+            if (issues.includes('heart')) {
+                recs += '<div class="supplement-item"><strong>Voor hartgezondheid: ❤️</strong> CoQ10 en Omega-3. <a href="https://www.amazon.nl/s?k=coq10+omega-3&tag=supplementen-21" target="_blank">Bekijk groep op Amazon.nl</a></div>';
+            }
+            if (issues.includes('thyroid')) {
+                recs += '<div class="supplement-item"><strong>Voor schildklier: 🦋</strong> Selenium en Jodium. <a href="https://www.amazon.nl/s?k=selenium+jodium&tag=supplementen-21" target="_blank">Bekijk groep op Amazon.nl</a></div>';
+            }
+            if (issues.includes('allergies')) {
+                recs += '<div class="supplement-item"><strong>Voor allergieën: 🤧</strong> Quercetine en Vitamine C. <a href="https://www.amazon.nl/s?k=quercetine+vitamine+c&tag=supplementen-21" target="_blank">Bekijk groep op Amazon.nl</a></div>';
+            }
+            if (issues.includes('fatigue')) {
+                recs += '<div class="supplement-item"><strong>Voor chronische vermoeidheid: 😴</strong> Ashwagandha en B-vitamines. <a href="https://www.amazon.nl/s?k=ashwagandha+b-vitamines&tag=supplementen-21" target="_blank">Bekijk groep op Amazon.nl</a></div>';
+            }
+            if (issues.includes('none')) {
+                recs += '<div class="supplement-item"><strong>Geen specifieke issues: 👍</strong> Een algemene multivitamine voor onderhoud. <a href="https://www.amazon.nl/s?k=multivitamine&tag=supplementen-21" target="_blank">Bekijk groep op Amazon.nl</a></div>';
+            }
+
+            // Algemene tip
+            recs += '<div class="supplement-item"><strong>Tip: 📝</strong> Begin met kleine doses en monitor je lichaam. Combineer met een gezond dieet!</div>';
+
+            document.getElementById('recommendation').innerHTML = recs;
+            document.getElementById('result').style.display = 'block';
+            window.scrollTo({ top: document.getElementById('result').offsetTop - 100, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
+```​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
