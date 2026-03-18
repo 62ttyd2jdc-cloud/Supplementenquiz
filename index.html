@@ -584,17 +584,17 @@
         <div class="quiz-q">Wat is jouw voornaamste doel?</div>
         <div class="quiz-hint">Kies de optie die het beste bij je past.</div>
         <div class="quiz-options">
-          <button class="quiz-opt" data-val="energie" onclick="selectOpt(this)"><span class="opt-icon">⚡</span> Meer energie</button>
-          <button class="quiz-opt" data-val="sport" onclick="selectOpt(this)"><span class="opt-icon">💪</span> Sportprestaties</button>
-          <button class="quiz-opt" data-val="immuun" onclick="selectOpt(this)"><span class="opt-icon">🛡️</span> Immuunsysteem</button>
-          <button class="quiz-opt" data-val="stress" onclick="selectOpt(this)"><span class="opt-icon">🧘</span> Minder stress</button>
-          <button class="quiz-opt" data-val="slaap" onclick="selectOpt(this)"><span class="opt-icon">😴</span> Beter slapen</button>
-          <button class="quiz-opt" data-val="gewicht" onclick="selectOpt(this)"><span class="opt-icon">⚖️</span> Gezond gewicht</button>
+          <button class="quiz-opt" data-val="energie"><span class="opt-icon">⚡</span> Meer energie</button>
+          <button class="quiz-opt" data-val="sport"><span class="opt-icon">💪</span> Sportprestaties</button>
+          <button class="quiz-opt" data-val="immuun"><span class="opt-icon">🛡️</span> Immuunsysteem</button>
+          <button class="quiz-opt" data-val="stress"><span class="opt-icon">🧘</span> Minder stress</button>
+          <button class="quiz-opt" data-val="slaap"><span class="opt-icon">😴</span> Beter slapen</button>
+          <button class="quiz-opt" data-val="gewicht"><span class="opt-icon">⚖️</span> Gezond gewicht</button>
         </div>
         <div class="quiz-nav">
           <span></span>
           <span class="quiz-counter">1 / 6</span>
-          <button class="btn-quiz-next" id="next1" disabled onclick="nextStep(1)">Volgende <span>→</span></button>
+          <button class="btn-quiz-next" id="next1" disabled>Volgende <span>→</span></button>
         </div>
       </div>
 
@@ -603,15 +603,15 @@
         <div class="quiz-q">Hoe zou je jouw dieet omschrijven?</div>
         <div class="quiz-hint">Dit bepaalt welke tekorten jij mogelijk hebt.</div>
         <div class="quiz-options">
-          <button class="quiz-opt" data-val="alles" onclick="selectOpt(this)"><span class="opt-icon">🍽️</span> Ik eet alles</button>
-          <button class="quiz-opt" data-val="weinigGroente" onclick="selectOpt(this)"><span class="opt-icon">🥩</span> Weinig groente</button>
-          <button class="quiz-opt" data-val="vegetarisch" onclick="selectOpt(this)"><span class="opt-icon">🥗</span> Vegetarisch</button>
-          <button class="quiz-opt" data-val="vegan" onclick="selectOpt(this)"><span class="opt-icon">🌱</span> Veganistisch</button>
+          <button class="quiz-opt" data-val="alles"><span class="opt-icon">🍽️</span> Ik eet alles</button>
+          <button class="quiz-opt" data-val="weinigGroente"><span class="opt-icon">🥩</span> Weinig groente</button>
+          <button class="quiz-opt" data-val="vegetarisch"><span class="opt-icon">🥗</span> Vegetarisch</button>
+          <button class="quiz-opt" data-val="vegan"><span class="opt-icon">🌱</span> Veganistisch</button>
         </div>
         <div class="quiz-nav">
-          <button class="btn-quiz-back" onclick="prevStep(2)">← Terug</button>
+          <button class="btn-quiz-back">← Terug</button>
           <span class="quiz-counter">2 / 6</span>
-          <button class="btn-quiz-next" id="next2" disabled onclick="nextStep(2)">Volgende <span>→</span></button>
+          <button class="btn-quiz-next" id="next2" disabled>Volgende <span>→</span></button>
         </div>
       </div>
 
@@ -620,15 +620,15 @@
         <div class="quiz-q">Hoeveel beweeg je per week?</div>
         <div class="quiz-hint">Reken alles mee: sporten, wandelen, fietsen.</div>
         <div class="quiz-options single">
-          <button class="quiz-opt" data-val="nauwelijks" onclick="selectOpt(this)"><span class="opt-icon">🛋️</span> Nauwelijks (< 1 uur)</button>
-          <button class="quiz-opt" data-val="matig" onclick="selectOpt(this)"><span class="opt-icon">🚶</span> Matig (1–3 uur)</button>
-          <button class="quiz-opt" data-val="actief" onclick="selectOpt(this)"><span class="opt-icon">🏃</span> Actief (3–5 uur)</button>
-          <button class="quiz-opt" data-val="intensief" onclick="selectOpt(this)"><span class="opt-icon">🏋️</span> Intensief (5+ uur)</button>
+          <button class="quiz-opt" data-val="nauwelijks"><span class="opt-icon">🛋️</span> Nauwelijks (< 1 uur)</button>
+          <button class="quiz-opt" data-val="matig"><span class="opt-icon">🚶</span> Matig (1–3 uur)</button>
+          <button class="quiz-opt" data-val="actief"><span class="opt-icon">🏃</span> Actief (3–5 uur)</button>
+          <button class="quiz-opt" data-val="intensief"><span class="opt-icon">🏋️</span> Intensief (5+ uur)</button>
         </div>
         <div class="quiz-nav">
-          <button class="btn-quiz-back" onclick="prevStep(3)">← Terug</button>
+          <button class="btn-quiz-back">← Terug</button>
           <span class="quiz-counter">3 / 6</span>
-          <button class="btn-quiz-next" id="next3" disabled onclick="nextStep(3)">Volgende <span>→</span></button>
+          <button class="btn-quiz-next" id="next3" disabled>Volgende <span>→</span></button>
         </div>
       </div>
 
@@ -637,14 +637,14 @@
         <div class="quiz-q">Hoe veel tijd breng je buiten door?</div>
         <div class="quiz-hint">Dit is bepalend voor je vitamine D aanmaak.</div>
         <div class="quiz-options single">
-          <button class="quiz-opt" data-val="weinigBuiten" onclick="selectOpt(this)"><span class="opt-icon">🏢</span> Weinig — voornamelijk binnen</button>
-          <button class="quiz-opt" data-val="gemiddeldBuiten" onclick="selectOpt(this)"><span class="opt-icon">🌤️</span> Gemiddeld — af en toe buiten</button>
-          <button class="quiz-opt" data-val="veelBuiten" onclick="selectOpt(this)"><span class="opt-icon">☀️</span> Veel — dagelijks buiten</button>
+          <button class="quiz-opt" data-val="weinigBuiten"><span class="opt-icon">🏢</span> Weinig — voornamelijk binnen</button>
+          <button class="quiz-opt" data-val="gemiddeldBuiten"><span class="opt-icon">🌤️</span> Gemiddeld — af en toe buiten</button>
+          <button class="quiz-opt" data-val="veelBuiten"><span class="opt-icon">☀️</span> Veel — dagelijks buiten</button>
         </div>
         <div class="quiz-nav">
-          <button class="btn-quiz-back" onclick="prevStep(4)">← Terug</button>
+          <button class="btn-quiz-back">← Terug</button>
           <span class="quiz-counter">4 / 6</span>
-          <button class="btn-quiz-next" id="next4" disabled onclick="nextStep(4)">Volgende <span>→</span></button>
+          <button class="btn-quiz-next" id="next4" disabled>Volgende <span>→</span></button>
         </div>
       </div>
 
@@ -653,15 +653,15 @@
         <div class="quiz-q">Hoe is jouw nachtrust gemiddeld?</div>
         <div class="quiz-hint">Eerlijk antwoorden geeft het beste resultaat.</div>
         <div class="quiz-options">
-          <button class="quiz-opt" data-val="slechtSlapen" onclick="selectOpt(this)"><span class="opt-icon">😫</span> Slecht (< 6 uur)</button>
-          <button class="quiz-opt" data-val="wisselend" onclick="selectOpt(this)"><span class="opt-icon">😐</span> Wisselend</button>
-          <button class="quiz-opt" data-val="goed" onclick="selectOpt(this)"><span class="opt-icon">😊</span> Goed (7–8 uur)</button>
-          <button class="quiz-opt" data-val="uitstekend" onclick="selectOpt(this)"><span class="opt-icon">😄</span> Uitstekend (8+ uur)</button>
+          <button class="quiz-opt" data-val="slechtSlapen"><span class="opt-icon">😫</span> Slecht (< 6 uur)</button>
+          <button class="quiz-opt" data-val="wisselend"><span class="opt-icon">😐</span> Wisselend</button>
+          <button class="quiz-opt" data-val="goed"><span class="opt-icon">😊</span> Goed (7–8 uur)</button>
+          <button class="quiz-opt" data-val="uitstekend"><span class="opt-icon">😄</span> Uitstekend (8+ uur)</button>
         </div>
         <div class="quiz-nav">
-          <button class="btn-quiz-back" onclick="prevStep(5)">← Terug</button>
+          <button class="btn-quiz-back">← Terug</button>
           <span class="quiz-counter">5 / 6</span>
-          <button class="btn-quiz-next" id="next5" disabled onclick="nextStep(5)">Volgende <span>→</span></button>
+          <button class="btn-quiz-next" id="next5" disabled>Volgende <span>→</span></button>
         </div>
       </div>
 
@@ -670,15 +670,15 @@
         <div class="quiz-q">Hoe zou je je energieniveau beschrijven?</div>
         <div class="quiz-hint">Denk aan een gemiddelde dag.</div>
         <div class="quiz-options single">
-          <button class="quiz-opt" data-val="vermoeid" onclick="selectOpt(this)"><span class="opt-icon">🔋</span> Vaak vermoeid en futloos</button>
-          <button class="quiz-opt" data-val="middagdip" onclick="selectOpt(this)"><span class="opt-icon">📉</span> Middagdip, wisselend</button>
-          <button class="quiz-opt" data-val="okEnergie" onclick="selectOpt(this)"><span class="opt-icon">👍</span> Redelijk stabiel</button>
-          <button class="quiz-opt" data-val="veelEnergie" onclick="selectOpt(this)"><span class="opt-icon">🚀</span> Veel energie de hele dag</button>
+          <button class="quiz-opt" data-val="vermoeid"><span class="opt-icon">🔋</span> Vaak vermoeid en futloos</button>
+          <button class="quiz-opt" data-val="middagdip"><span class="opt-icon">📉</span> Middagdip, wisselend</button>
+          <button class="quiz-opt" data-val="okEnergie"><span class="opt-icon">👍</span> Redelijk stabiel</button>
+          <button class="quiz-opt" data-val="veelEnergie"><span class="opt-icon">🚀</span> Veel energie de hele dag</button>
         </div>
         <div class="quiz-nav">
-          <button class="btn-quiz-back" onclick="prevStep(6)">← Terug</button>
+          <button class="btn-quiz-back">← Terug</button>
           <span class="quiz-counter">6 / 6</span>
-          <button class="btn-quiz-next" id="next6" disabled onclick="showResults()">Bekijk mijn resultaten 🎉</button>
+          <button class="btn-quiz-next" id="next6" disabled>Bekijk mijn resultaten 🎉</button>
         </div>
       </div>
 
@@ -780,15 +780,6 @@
   let currentStep = 1;
   const totalSteps = 6;
 
-  function selectOpt(el) {
-    const step = el.closest('.quiz-step');
-    step.querySelectorAll('.quiz-opt').forEach(o => o.classList.remove('selected'));
-    el.classList.add('selected');
-    const stepNum = step.id.replace('step', '');
-    answers[stepNum] = el.dataset.val;
-    document.getElementById('next' + stepNum).disabled = false;
-  }
-
   function updateProgress(step) {
     const pct = ((step - 1) / totalSteps) * 100;
     document.getElementById('quizProgress').style.width = pct + '%';
@@ -810,6 +801,53 @@
     currentStep = prev;
     updateProgress(prev);
   }
+
+  // ─── QUIZ KLIK-LOGICA via event delegation (robuust, werkt altijd) ───
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // Optie selecteren
+    document.querySelectorAll('.quiz-opt').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        var step = btn.closest('.quiz-step');
+        step.querySelectorAll('.quiz-opt').forEach(function(o) { o.classList.remove('selected'); });
+        btn.classList.add('selected');
+        var stepNum = step.id.replace('step', '');
+        answers[stepNum] = btn.getAttribute('data-val');
+        var nextBtn = document.getElementById('next' + stepNum);
+        if (nextBtn) nextBtn.disabled = false;
+      });
+    });
+
+    // Volgende knoppen
+    for (var i = 1; i <= 5; i++) {
+      (function(num) {
+        var btn = document.getElementById('next' + num);
+        if (btn) btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          nextStep(num);
+        });
+      })(i);
+    }
+
+    // Laatste knop → resultaten
+    var next6 = document.getElementById('next6');
+    if (next6) next6.addEventListener('click', function(e) {
+      e.preventDefault();
+      showResults();
+    });
+
+    // Terug knoppen
+    document.querySelectorAll('.btn-quiz-back').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        var step = btn.closest('.quiz-step');
+        var stepNum = parseInt(step.id.replace('step', ''));
+        prevStep(stepNum);
+      });
+    });
+
+  });
 
   // ─── AFFILIATE LINKS — VUL HIER JOUW LINKS IN ───────────────────────────────
   //
