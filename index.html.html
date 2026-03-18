@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SupplementenQuiz – Ontdek welke supplementen jij nodig hebt</title>
+  <meta name="description" content="Doe de gratis SupplementenQuiz en ontdek in 2 minuten precies welke vitamines en supplementen passen bij jouw lichaam en leefstijl." />
+  <meta name="keywords" content="supplementen quiz, welke supplementen heb ik nodig, vitamines advies, supplement aanbeveling, gezondheid test" />
+  <meta property="og:title" content="SupplementenQuiz – Persoonlijk supplement advies" />
+  <meta property="og:description" content="Doe de gratis quiz en ontdek in 2 minuten welke supplementen jij nodig hebt." />
+  <meta property="og:type" content="website" />
+  <meta name="google-site-verification" content="tBcIKl6ogkhOJMk_2lVtJzAxpTZeOEzfsJ-fMabBYbo" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --forest: #1a3a2a;
+      --moss: #2d5a3d;
+      --sage: #4e8c6a;
+      --mint: #a8d5b5;
+      --cream: #f5f0e8;
+      --warm-white: #fdfaf4;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --text-dark: #1a1a1a;
+      --text-mid: #4a4a4a;
+      --text-light: #7a7a7a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(253,250,244,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(78,140,106,0.15);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--forest);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-cta {
+      background: var(--forest);
+      color: var(--cream);
+      padding: 0.55rem 1.4rem;
+      border-radius: 100px;
+      font-size: 0.875rem; font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--moss); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      padding: 8rem 5vw 5rem;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(168,213,181,0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(201,168,76,0.1) 0%, transparent 60%),
+        var(--warm-white);
+    }
+    .hero-text { max-width: 560px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(78,140,106,0.12);
+      border: 1px solid rgba(78,140,106,0.3);
+      color: var(--moss);
+      padding: 0.35rem 0.9rem;
+      border-radius: 100px;
+      font-size: 0.8rem; font-weight: 500;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-badge::before { content: '✦'; color: var(--gold); }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1;
+      color: var(--forest);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    .hero h1 em { font-style: italic; color: var(--sage); }
+    .hero-sub {
+      font-size: 1.1rem; line-height: 1.7;
+      color: var(--text-mid);
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+    .hero-actions {
+      display: flex; align-items: center; gap: 1.5rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .btn-primary {
+      background: var(--forest);
+      color: var(--cream);
+      padding: 0.9rem 2rem;
+      border-radius: 100px;
+      font-size: 1rem; font-weight: 500;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(26,58,42,0.25);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,58,42,0.3); }
+    .btn-primary .arrow { transition: transform 0.2s; }
+    .btn-primary:hover .arrow { transform: translateX(4px); }
+    .hero-social {
+      font-size: 0.85rem; color: var(--text-light);
+    }
+    .hero-social strong { color: var(--text-dark); }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      animation: fadeIn 0.8s 0.4s ease both;
+    }
+    .hero-card-stack { position: relative; width: 340px; height: 420px; }
+    .hero-card {
+      position: absolute;
+      background: white;
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+    }
+    .hero-card-main {
+      width: 100%; height: 100%;
+      background: linear-gradient(145deg, var(--forest) 0%, var(--moss) 100%);
+      color: white;
+      display: flex; flex-direction: column;
+      border-radius: 24px;
+      padding: 2rem;
+      overflow: hidden;
+    }
+    .hero-card-main::before {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(168,213,181,0.15);
+    }
+    .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; margin-bottom: 0.5rem;
+    }
+    .card-sub { font-size: 0.85rem; opacity: 0.75; line-height: 1.5; }
+    .card-progress { margin-top: auto; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 0.8rem; opacity: 0.8; margin-bottom: 0.5rem; }
+    .progress-bar { background: rgba(255,255,255,0.2); border-radius: 100px; height: 6px; overflow: hidden; }
+    .progress-fill { background: var(--gold); height: 100%; border-radius: 100px; width: 65%; }
+
+    .hero-card-float {
+      width: 160px;
+      bottom: 40px; right: -30px;
+      background: white;
+      border-radius: 16px;
+      padding: 1rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      animation: float 3s ease-in-out infinite;
+    }
+    .float-icon { font-size: 1.8rem; }
+    .float-text { font-size: 0.75rem; }
+    .float-text strong { display: block; color: var(--forest); }
+    .float-text span { color: var(--text-light); }
+
+    .hero-card-float2 {
+      width: 140px;
+      top: 30px; right: -20px;
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      animation: float 3s 1s ease-in-out infinite;
+    }
+    .float2-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 900;
+      color: var(--forest);
+    }
+    .float2-label { font-size: 0.7rem; color: var(--text-light); }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      background: var(--forest);
+      color: rgba(255,255,255,0.7);
+      padding: 1.2rem 5vw;
+      display: flex; align-items: center; justify-content: center;
+      gap: 3rem; flex-wrap: wrap;
+      font-size: 0.85rem;
+    }
+    .trust-item { display: flex; align-items: center; gap: 0.5rem; }
+    .trust-item .icon { font-size: 1rem; opacity: 0.9; }
+    .trust-item strong { color: white; }
+
+    /* ─── HOW IT WORKS ─── */
+    .section { padding: 6rem 5vw; }
+    .section-label {
+      font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--sage); font-weight: 500; margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--forest); line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1rem; color: var(--text-mid);
+      max-width: 520px; line-height: 1.7; font-weight: 300;
+    }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem; margin-top: 4rem;
+    }
+    .step-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(78,140,106,0.12);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .step-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(26,58,42,0.1); }
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem; font-weight: 900;
+      color: rgba(78,140,106,0.15);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .step-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .step-card h3 { font-size: 1.1rem; color: var(--forest); margin-bottom: 0.5rem; }
+    .step-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; font-weight: 300; }
+
+    /* ─── QUIZ ─── */
+    #quiz { background: var(--cream); }
+    .quiz-wrapper {
+      max-width: 680px; margin: 0 auto;
+    }
+    .quiz-header { text-align: center; margin-bottom: 3rem; }
+    .quiz-box {
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 30px rgba(26,58,42,0.08);
+      min-height: 360px;
+    }
+    .quiz-progress-bar {
+      background: rgba(78,140,106,0.12);
+      border-radius: 100px; height: 6px; margin-bottom: 2rem;
+      overflow: hidden;
+    }
+    .quiz-progress-fill {
+      background: linear-gradient(90deg, var(--sage), var(--gold));
+      height: 100%; border-radius: 100px;
+      transition: width 0.4s ease;
+    }
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; animation: fadeUp 0.4s ease; }
+    .quiz-q {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: var(--forest);
+      margin-bottom: 0.5rem; line-height: 1.3;
+    }
+    .quiz-hint { font-size: 0.875rem; color: var(--text-light); margin-bottom: 1.8rem; }
+    .quiz-options {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .quiz-options.single { grid-template-columns: 1fr; }
+    .quiz-opt {
+      border: 2px solid rgba(78,140,106,0.2);
+      border-radius: 14px; padding: 1rem 1.2rem;
+      cursor: pointer; background: white;
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: 0.9rem; color: var(--text-dark); font-family: 'DM Sans', sans-serif;
+      transition: all 0.2s; text-align: left;
+    }
+    .quiz-opt:hover { border-color: var(--sage); background: rgba(78,140,106,0.04); }
+    .quiz-opt.selected { border-color: var(--sage); background: rgba(78,140,106,0.08); color: var(--forest); font-weight: 500; }
+    .quiz-opt .opt-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .quiz-nav {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 2rem;
+    }
+    .btn-quiz-back {
+      background: none; border: none; cursor: pointer;
+      color: var(--text-light); font-size: 0.875rem; font-family: 'DM Sans', sans-serif;
+      padding: 0.5rem;
+    }
+    .btn-quiz-back:hover { color: var(--text-dark); }
+    .btn-quiz-next {
+      background: var(--forest); color: var(--cream);
+      border: none; cursor: pointer;
+      padding: 0.8rem 1.8rem; border-radius: 100px;
+      font-size: 0.9rem; font-weight: 500; font-family: 'DM Sans', sans-serif;
+      transition: all 0.2s;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-quiz-next:hover { background: var(--moss); transform: translateY(-1px); }
+    .btn-quiz-next:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+    .quiz-counter { font-size: 0.8rem; color: var(--text-light); }
+
+    /* ─── RESULTS ─── */
+    #results { display: none; }
+    .results-header { text-align: center; margin-bottom: 3rem; }
+    .results-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem; max-width: 960px; margin: 0 auto;
+    }
+    .result-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(78,140,106,0.12);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .result-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(26,58,42,0.12); }
+    .result-card-top {
+      background: linear-gradient(135deg, var(--forest) 0%, var(--moss) 100%);
+      padding: 1.5rem;
+      color: white; display: flex; align-items: center; gap: 1rem;
+    }
+    .result-emoji { font-size: 2.5rem; }
+    .result-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; }
+    .result-match { font-size: 0.75rem; opacity: 0.75; }
+    .result-body { padding: 1.5rem; }
+    .result-desc { font-size: 0.875rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 1.2rem; font-weight: 300; }
+    .result-why {
+      background: rgba(78,140,106,0.06);
+      border-left: 3px solid var(--sage);
+      padding: 0.75rem 1rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.8rem; color: var(--moss);
+      margin-bottom: 1.2rem;
+    }
+    .result-why strong { display: block; margin-bottom: 0.2rem; }
+    .shop-buttons { display: flex; flex-direction: column; gap: 0.5rem; }
+    .btn-shop {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.65rem 1rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 0.82rem; font-weight: 600;
+      transition: all 0.2s;
+      width: 100%;
+    }
+    .btn-shop:hover { transform: translateY(-1px); filter: brightness(1.05); }
+    .btn-shop.amazon { background: var(--gold); color: var(--forest); }
+    .btn-shop.bol { background: #0000a4; color: white; }
+    .btn-shop.bodyfit { background: #e8000d; color: white; }
+    .btn-shop.vitakruid { background: #2d7a3a; color: white; }
+    .btn-shop.holland { background: #f26522; color: white; }
+
+    .results-disclaimer {
+      text-align: center; font-size: 0.75rem; color: var(--text-light);
+      margin-top: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;
+      line-height: 1.6;
+    }
+    .btn-retake {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: none; border: 2px solid var(--forest);
+      color: var(--forest); padding: 0.7rem 1.5rem;
+      border-radius: 100px; cursor: pointer;
+      font-size: 0.875rem; font-family: 'DM Sans', sans-serif;
+      margin-top: 2rem; transition: all 0.2s;
+    }
+    .btn-retake:hover { background: var(--forest); color: white; }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials { background: var(--forest); padding: 6rem 5vw; }
+    .testimonials .section-label { color: var(--mint); }
+    .testimonials .section-title { color: white; }
+    .testimonials .section-sub { color: rgba(255,255,255,0.6); }
+    .testi-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .testi-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 1.75rem;
+    }
+    .testi-stars { color: var(--gold); font-size: 1rem; margin-bottom: 1rem; }
+    .testi-text {
+      font-size: 0.9rem; line-height: 1.7;
+      color: rgba(255,255,255,0.8); font-weight: 300;
+      margin-bottom: 1.2rem; font-style: italic;
+    }
+    .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testi-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--sage); display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .testi-name { font-size: 0.875rem; color: white; font-weight: 500; }
+    .testi-loc { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+
+    /* ─── FAQ ─── */
+    .faq-grid { max-width: 720px; margin: 3rem auto 0; }
+    .faq-item {
+      border-bottom: 1px solid rgba(78,140,106,0.15);
+      padding: 1.25rem 0;
+    }
+    .faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; gap: 1rem;
+      font-size: 0.95rem; font-weight: 500; color: var(--forest);
+    }
+    .faq-q .toggle {
+      font-size: 1.2rem; color: var(--sage); flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .faq-a {
+      font-size: 0.875rem; color: var(--text-mid); line-height: 1.7;
+      padding-top: 0.75rem; display: none; font-weight: 300;
+    }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .toggle { transform: rotate(45deg); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.5);
+      padding: 3rem 5vw;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      font-size: 0.8rem;
+    }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer a:hover { color: white; }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; color: white; font-weight: 700;
+    }
+    .footer-logo span { color: var(--gold); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 7rem; text-align: center; gap: 3rem; }
+      .hero-visual { justify-content: center; }
+      .hero-actions { justify-content: center; }
+      .steps-grid, .testi-grid { grid-template-columns: 1fr; }
+      .trust-bar { gap: 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .quiz-options { grid-template-columns: 1fr; }
+      .hero-card-stack { width: 280px; height: 340px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Supplementen<span>Quiz</span></a>
+  <a class="nav-cta" href="#quiz">Start de quiz →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">Gratis · 2 minuten · Persoonlijk advies</div>
+    <h1>Welke supplementen passen bij <em>jou</em>?</h1>
+    <p class="hero-sub">Stop met geld verspillen aan supplementen die je niet nodig hebt. Doe onze quiz en ontdek precies wat jouw lichaam nodig heeft — gebaseerd op jouw leefstijl en doelen.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#quiz">Start gratis quiz <span class="arrow">→</span></a>
+      <div class="hero-social">Al <strong>2.400+</strong> mensen gingen je voor</div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card-stack">
+      <div class="hero-card hero-card-main">
+        <div class="card-icon">🌿</div>
+        <div class="card-title">Jouw persoonlijk plan</div>
+        <div class="card-sub">Op basis van jouw antwoorden stellen wij de beste supplementen voor.</div>
+        <div class="card-progress">
+          <div class="progress-label"><span>Profiel compleet</span><span>65%</span></div>
+          <div class="progress-bar"><div class="progress-fill"></div></div>
+        </div>
+      </div>
+      <div class="hero-card hero-card-float">
+        <div class="float-icon">⚡</div>
+        <div class="float-text"><strong>Meer energie</strong><span>Top resultaat</span></div>
+      </div>
+      <div class="hero-card hero-card-float2">
+        <div class="float2-num">2 min</div>
+        <div class="float2-label">quiz duur</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="icon">✓</span><span><strong>100% gratis</strong> advies</span></div>
+  <div class="trust-item"><span class="icon">🔒</span><span><strong>Geen</strong> registratie nodig</span></div>
+  <div class="trust-item"><span class="icon">⭐</span><span><strong>4.8/5</strong> beoordeling</span></div>
+  <div class="trust-item"><span class="icon">🇳🇱</span><span><strong>Nederlandstalig</strong> advies</span></div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="section-label">Hoe het werkt</div>
+  <h2 class="section-title">Van quiz naar<br/>persoonlijk advies</h2>
+  <p class="section-sub">Drie simpele stappen en je weet exact welke supplementen bij jou passen.</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-icon">📋</div>
+      <h3>Beantwoord 6 vragen</h3>
+      <p>Vertel ons over je leefstijl, doelen en eventuele klachten. Duurt minder dan 2 minuten.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-icon">🔬</div>
+      <h3>Ontvang je analyse</h3>
+      <p>Op basis van je antwoorden selecteren we de supplementen die het meest relevant zijn voor jou.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-icon">🛒</div>
+      <h3>Bestel eenvoudig via Amazon</h3>
+      <p>Direct doorlinken naar kwalitatieve producten op Amazon. Snel geleverd, eenvoudig besteld.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ SECTION -->
+<section class="section" id="quiz">
+  <div class="quiz-wrapper">
+    <div class="quiz-header">
+      <div class="section-label">De Quiz</div>
+      <h2 class="section-title">Ontdek jouw ideale supplementen</h2>
+      <p class="section-sub">Beantwoord eerlijk — hoe preciezer, hoe beter ons advies.</p>
+    </div>
+
+    <!-- QUIZ BOX -->
+    <div class="quiz-box" id="quizBox">
+      <div class="quiz-progress-bar">
+        <div class="quiz-progress-fill" id="quizProgress" style="width: 0%"></div>
+      </div>
+
+      <!-- Stap 1 -->
+      <div class="quiz-step active" id="step1">
+        <div class="quiz-q">Wat is jouw voornaamste doel?</div>
+        <div class="quiz-hint">Kies de optie die het beste bij je past.</div>
+        <div class="quiz-options">
+          <button class="quiz-opt" data-val="energie" onclick="selectOpt(this)"><span class="opt-icon">⚡</span> Meer energie</button>
+          <button class="quiz-opt" data-val="sport" onclick="selectOpt(this)"><span class="opt-icon">💪</span> Sportprestaties</button>
+          <button class="quiz-opt" data-val="immuun" onclick="selectOpt(this)"><span class="opt-icon">🛡️</span> Immuunsysteem</button>
+          <button class="quiz-opt" data-val="stress" onclick="selectOpt(this)"><span class="opt-icon">🧘</span> Minder stress</button>
+          <button class="quiz-opt" data-val="slaap" onclick="selectOpt(this)"><span class="opt-icon">😴</span> Beter slapen</button>
+          <button class="quiz-opt" data-val="gewicht" onclick="selectOpt(this)"><span class="opt-icon">⚖️</span> Gezond gewicht</button>
+        </div>
+        <div class="quiz-nav">
+          <span></span>
+          <span class="quiz-counter">1 / 6</span>
+          <button class="btn-quiz-next" id="next1" disabled onclick="nextStep(1)">Volgende <span>→</span></button>
+        </div>
+      </div>
+
+      <!-- Stap 2 -->
+      <div class="quiz-step" id="step2">
+        <div class="quiz-q">Hoe zou je jouw dieet omschrijven?</div>
+        <div class="quiz-hint">Dit bepaalt welke tekorten jij mogelijk hebt.</div>
+        <div class="quiz-options">
+          <button class="quiz-opt" data-val="alles" onclick="selectOpt(this)"><span class="opt-icon">🍽️</span> Ik eet alles</button>
+          <button class="quiz-opt" data-val="weinigGroente" onclick="selectOpt(this)"><span class="opt-icon">🥩</span> Weinig groente</button>
+          <button class="quiz-opt" data-val="vegetarisch" onclick="selectOpt(this)"><span class="opt-icon">🥗</span> Vegetarisch</button>
+          <button class="quiz-opt" data-val="vegan" onclick="selectOpt(this)"><span class="opt-icon">🌱</span> Veganistisch</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz-back" onclick="prevStep(parseInt(this.closest('.quiz-step').id.replace('step','')))">← Terug</button>
+          <span class="quiz-counter">2 / 6</span>
+          <button class="btn-quiz-next" id="next2" disabled onclick="nextStep(2)">Volgende <span>→</span></button>
+        </div>
+      </div>
+
+      <!-- Stap 3 -->
+      <div class="quiz-step" id="step3">
+        <div class="quiz-q">Hoeveel beweeg je per week?</div>
+        <div class="quiz-hint">Reken alles mee: sporten, wandelen, fietsen.</div>
+        <div class="quiz-options single">
+          <button class="quiz-opt" data-val="nauwelijks" onclick="selectOpt(this)"><span class="opt-icon">🛋️</span> Nauwelijks (< 1 uur)</button>
+          <button class="quiz-opt" data-val="matig" onclick="selectOpt(this)"><span class="opt-icon">🚶</span> Matig (1–3 uur)</button>
+          <button class="quiz-opt" data-val="actief" onclick="selectOpt(this)"><span class="opt-icon">🏃</span> Actief (3–5 uur)</button>
+          <button class="quiz-opt" data-val="intensief" onclick="selectOpt(this)"><span class="opt-icon">🏋️</span> Intensief (5+ uur)</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz-back" onclick="prevStep(parseInt(this.closest('.quiz-step').id.replace('step','')))">← Terug</button>
+          <span class="quiz-counter">3 / 6</span>
+          <button class="btn-quiz-next" id="next3" disabled onclick="nextStep(3)">Volgende <span>→</span></button>
+        </div>
+      </div>
+
+      <!-- Stap 4 -->
+      <div class="quiz-step" id="step4">
+        <div class="quiz-q">Hoe veel tijd breng je buiten door?</div>
+        <div class="quiz-hint">Dit is bepalend voor je vitamine D aanmaak.</div>
+        <div class="quiz-options single">
+          <button class="quiz-opt" data-val="weinigBuiten" onclick="selectOpt(this)"><span class="opt-icon">🏢</span> Weinig — voornamelijk binnen</button>
+          <button class="quiz-opt" data-val="gemiddeldBuiten" onclick="selectOpt(this)"><span class="opt-icon">🌤️</span> Gemiddeld — af en toe buiten</button>
+          <button class="quiz-opt" data-val="veelBuiten" onclick="selectOpt(this)"><span class="opt-icon">☀️</span> Veel — dagelijks buiten</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz-back" onclick="prevStep(parseInt(this.closest('.quiz-step').id.replace('step','')))">← Terug</button>
+          <span class="quiz-counter">4 / 6</span>
+          <button class="btn-quiz-next" id="next4" disabled onclick="nextStep(4)">Volgende <span>→</span></button>
+        </div>
+      </div>
+
+      <!-- Stap 5 -->
+      <div class="quiz-step" id="step5">
+        <div class="quiz-q">Hoe is jouw nachtrust gemiddeld?</div>
+        <div class="quiz-hint">Eerlijk antwoorden geeft het beste resultaat.</div>
+        <div class="quiz-options">
+          <button class="quiz-opt" data-val="slechtSlapen" onclick="selectOpt(this)"><span class="opt-icon">😫</span> Slecht (< 6 uur)</button>
+          <button class="quiz-opt" data-val="wisselend" onclick="selectOpt(this)"><span class="opt-icon">😐</span> Wisselend</button>
+          <button class="quiz-opt" data-val="goed" onclick="selectOpt(this)"><span class="opt-icon">😊</span> Goed (7–8 uur)</button>
+          <button class="quiz-opt" data-val="uitstekend" onclick="selectOpt(this)"><span class="opt-icon">😄</span> Uitstekend (8+ uur)</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz-back" onclick="prevStep(parseInt(this.closest('.quiz-step').id.replace('step','')))">← Terug</button>
+          <span class="quiz-counter">5 / 6</span>
+          <button class="btn-quiz-next" id="next5" disabled onclick="nextStep(5)">Volgende <span>→</span></button>
+        </div>
+      </div>
+
+      <!-- Stap 6 -->
+      <div class="quiz-step" id="step6">
+        <div class="quiz-q">Hoe zou je je energieniveau beschrijven?</div>
+        <div class="quiz-hint">Denk aan een gemiddelde dag.</div>
+        <div class="quiz-options single">
+          <button class="quiz-opt" data-val="vermoeid" onclick="selectOpt(this)"><span class="opt-icon">🔋</span> Vaak vermoeid en futloos</button>
+          <button class="quiz-opt" data-val="middagdip" onclick="selectOpt(this)"><span class="opt-icon">📉</span> Middagdip, wisselend</button>
+          <button class="quiz-opt" data-val="okEnergie" onclick="selectOpt(this)"><span class="opt-icon">👍</span> Redelijk stabiel</button>
+          <button class="quiz-opt" data-val="veelEnergie" onclick="selectOpt(this)"><span class="opt-icon">🚀</span> Veel energie de hele dag</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz-back" onclick="prevStep(parseInt(this.closest('.quiz-step').id.replace('step','')))">← Terug</button>
+          <span class="quiz-counter">6 / 6</span>
+          <button class="btn-quiz-next" id="next6" disabled onclick="showResults()">Bekijk mijn resultaten 🎉</button>
+        </div>
+      </div>
+
+    </div><!-- end quiz-box -->
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="section" id="results">
+  <div class="results-header">
+    <div class="section-label">Jouw persoonlijk advies</div>
+    <h2 class="section-title" id="resultsTitle">Gebaseerd op jouw profiel</h2>
+    <p class="section-sub" style="margin: 0 auto; text-align:center;">Dit zijn de supplementen die het beste bij jou passen. Klik op een product om het te bekijken op Amazon.</p>
+  </div>
+  <div class="results-grid" id="resultsGrid"></div>
+  <div style="text-align:center;">
+    <p class="results-disclaimer">⚠️ Dit advies is informatief en vervangt geen medisch advies. Raadpleeg bij twijfel een arts. De Amazon-links zijn affiliate links — bij aankoop ontvangen wij een kleine commissie, zonder meerkosten voor jou.</p>
+    <button class="btn-retake" onclick="retakeQuiz()">↺ Quiz opnieuw doen</button>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-label">Ervaringen</div>
+  <h2 class="section-title">Wat anderen zeggen</h2>
+  <p class="section-sub">Duizenden Nederlanders gingen je voor.</p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">"Na de quiz wist ik eindelijk welke supplementen echt zinvol zijn voor mij. Vitamine D en magnesium hebben mijn energie enorm verbeterd!"</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👩</div>
+        <div><div class="testi-name">Marieke V.</div><div class="testi-loc">Amsterdam</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">"Ik sportte al jaren maar slikte de verkeerde supplementen. Dankzij deze quiz gebruik ik nu creatine en omega-3 — en voel het verschil echt."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👨</div>
+        <div><div class="testi-name">Thomas B.</div><div class="testi-loc">Rotterdam</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★☆</div>
+      <div class="testi-text">"Als veganist miste ik veel voedingsstoffen zonder het te weten. De quiz wees me op B12 en ijzer. Nu voel ik me veel beter en heb meer focus."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👩</div>
+        <div><div class="testi-name">Lena S.</div><div class="testi-loc">Utrecht</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background: var(--warm-white);">
+  <div style="text-align:center;">
+    <div class="section-label">Veelgestelde vragen</div>
+    <h2 class="section-title">Alles wat je wilt weten</h2>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is de quiz echt gratis? <span class="toggle">+</span></div>
+      <div class="faq-a">Ja, volledig gratis en zonder registratie. Wij verdienen een kleine commissie als je via onze links iets koopt op Amazon — zonder meerkosten voor jou.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Hoe betrouwbaar is het advies? <span class="toggle">+</span></div>
+      <div class="faq-a">Ons advies is gebaseerd op wetenschappelijke inzichten en algemeen erkende voedingsrichtlijnen. Het vervangt echter geen medisch advies. Bij ernstige klachten raden we altijd aan een arts te raadplegen.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Moet ik alle aanbevolen supplementen nemen? <span class="toggle">+</span></div>
+      <div class="faq-a">Nee, zeker niet. We laten je de meest relevante opties zien. Begin met 1–2 supplementen en kijk hoe je lichaam reageert. Meer is niet altijd beter.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Waarom Amazon? <span class="toggle">+</span></div>
+      <div class="faq-a">Amazon heeft een breed aanbod, goede klantenservice en snelle levering. De producten die we aanraden staan hoog aangeschreven qua kwaliteit en klantbeoordelingen.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Kan ik de quiz opnieuw doen? <span class="toggle">+</span></div>
+      <div class="faq-a">Ja! Klik op de knop "Quiz opnieuw doen" na je resultaten. Handig als je doelen veranderen of als je een ander scenario wilt testen.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Supplementen<span>Quiz</span></div>
+  <div>© 2024 SupplementenQuiz.nl — Alle rechten voorbehouden</div>
+  <div>
+    <a href="#quiz">Quiz</a> &nbsp;·&nbsp;
+    <a href="#faq">FAQ</a> &nbsp;·&nbsp;
+    <a href="/cdn-cgi/l/email-protection#a0c9cec6cfe0d3d5d0d0ccc5cdc5ced4c5ced1d5c9da8ececc">Contact</a>
+  </div>
+</footer>
+
+<script>
+  // ─── QUIZ STATE ───
+  var answers = {};
+  var currentStep = 1;
+  var totalSteps = 6;
+
+  function updateProgress(step) {
+    var pct = ((step - 1) / totalSteps) * 100;
+    document.getElementById('quizProgress').style.width = pct + '%';
+  }
+
+  function nextStep(current) {
+    document.getElementById('step' + current).classList.remove('active');
+    var next = current + 1;
+    document.getElementById('step' + next).classList.add('active');
+    currentStep = next;
+    updateProgress(next);
+    window.scrollTo({ top: document.getElementById('quiz').offsetTop - 80, behavior: 'smooth' });
+  }
+
+  function prevStep(current) {
+    document.getElementById('step' + current).classList.remove('active');
+    var prev = current - 1;
+    document.getElementById('step' + prev).classList.add('active');
+    currentStep = prev;
+    updateProgress(prev);
+  }
+
+  function selectOpt(btn) {
+    var step = btn.closest('.quiz-step');
+    step.querySelectorAll('.quiz-opt').forEach(function(o) { o.classList.remove('selected'); });
+    btn.classList.add('selected');
+    var stepNum = step.id.replace('step', '');
+    answers[stepNum] = btn.getAttribute('data-val');
+    var nextBtn = document.getElementById('next' + stepNum);
+    if (nextBtn) nextBtn.disabled = false;
+  }
+
+  // ─── AFFILIATE LINKS — VUL HIER JOUW LINKS IN ───────────────────────────────
+  //
+  // HOE INVULLEN:
+  //
+  // AMAZON:  Ga naar affiliate-program.amazon.nl → jouw tracking ID (bijv. "supquiz-21")
+  //          Vervang AMAZON-TAG door jouw ID in elke amazon.nl link hieronder
+  //
+  // BOL.COM: Ga naar partner.bol.com → Deeplink tool → zoek product → kopieer link
+  //          Vervang BOL-LINK-VITD (etc.) door jouw gegenereerde deeplink
+  //
+  // TRADETRACKER — Body & Fit:
+  //          Inloggen op tradetracker.com → Campagnes → Body & Fit → Deeplink generator
+  //          Vervang BODYFIT-LINK-VITD (etc.) door jouw gegenereerde deeplink
+  //
+  // TRADETRACKER — Vitakruid:
+  //          Zelfde als hierboven maar via Vitakruid campagne
+  //          Vervang VITAKRUID-LINK-VITD (etc.) door jouw gegenereerde deeplink
+  //
+  // TIP: Begin met Amazon + één Tradetracker winkel. Dat is al genoeg om te starten.
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  // Amazon tag: supplementen-21 (al ingevuld overal hieronder)
+  // Bol/Tradetracker placeholders: vervang BOL-LINK-xxx en BODYFIT-LINK-xxx en VITAKRUID-LINK-xxx
+
+  const supplements = {
+    vitD: {
+      emoji: '☀️', name: 'Vitamine D3',
+      desc: 'Vitamine D is essentieel voor je immuunsysteem, botten en energieniveau. Especially in Nederland, met weinig zon, heeft een groot deel van de bevolking een tekort.',
+      why: 'Jij brengt weinig tijd buiten door, waardoor je lichaam onvoldoende vitamine D aanmaakt via zonlicht.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=vitamine+d3+supplement&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-VITD' },
+        { label: '🔴 Body & Fit', cls: 'bodyfit', url: 'BODYFIT-LINK-VITD' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-VITD' },
+      ],
+      tags: ['weinigBuiten', 'gemiddeldBuiten', 'immuun', 'vermoeid', 'middagdip', 'nauwelijks', 'matig']
+    },
+    magnesium: {
+      emoji: '🧠', name: 'Magnesium',
+      desc: 'Magnesium speelt een rol bij meer dan 300 lichaamsprocessen: van ontspanning en slaap tot energieproductie en spierherstel.',
+      why: 'Op basis van je slaappatroon en stressniveau is magnesium waarschijnlijk een waardevolle aanvulling.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=magnesium+supplement&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-MAGNESIUM' },
+        { label: '🔴 Body & Fit', cls: 'bodyfit', url: 'BODYFIT-LINK-MAGNESIUM' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-MAGNESIUM' },
+      ],
+      tags: ['stress', 'slaap', 'slechtSlapen', 'wisselend', 'vermoeid', 'middagdip']
+    },
+    multivitamine: {
+      emoji: '💊', name: 'Multivitamine',
+      desc: 'Een goede multivitamine dekt in één klap de meest voorkomende tekorten: vitamines A, C, D, E, K en B-complex plus essentiële mineralen.',
+      why: 'Met een minder gevarieerd dieet is een dagelijkse multivitamine de makkelijkste manier om je basis te dekken.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=multivitamine+dagelijks&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-MULTI' },
+        { label: '🔴 Body & Fit', cls: 'bodyfit', url: 'BODYFIT-LINK-MULTI' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-MULTI' },
+      ],
+      tags: ['alles', 'weinigGroente', 'nauwelijks', 'matig', 'vermoeid', 'middagdip']
+    },
+    omega3: {
+      emoji: '🐟', name: 'Omega-3 (visolie)',
+      desc: 'Omega-3 vetzuren ondersteunen hersenfunctie, hart- en vaatgezondheid en verminderen ontstekingen. Essentieel als je weinig vette vis eet.',
+      why: 'Je dieet bevat waarschijnlijk te weinig omega-3 vetzuren, wat invloed heeft op je energieniveau en concentratie.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=omega+3+visolie&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-OMEGA3' },
+        { label: '🔴 Body & Fit', cls: 'bodyfit', url: 'BODYFIT-LINK-OMEGA3' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-OMEGA3' },
+      ],
+      tags: ['alles', 'weinigGroente', 'vermoeid', 'middagdip', 'stress', 'nauwelijks']
+    },
+    b12: {
+      emoji: '🌱', name: 'Vitamine B12',
+      desc: 'B12 is bijna uitsluitend te vinden in dierlijke producten. Veganisten en vegetariërs hebben een significant hogere kans op een tekort met klachten als vermoeidheid en concentratieproblemen.',
+      why: 'Als vegetariër of veganist is suppletie van B12 vrijwel onmisbaar om tekorten en vermoeidheid te voorkomen.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=vitamine+b12+supplement&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-B12' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-B12' },
+        { label: '🔴 Body & Fit', cls: 'bodyfit', url: 'BODYFIT-LINK-B12' },
+      ],
+      tags: ['vegetarisch', 'vegan', 'vermoeid', 'middagdip']
+    },
+    ijzer: {
+      emoji: '🩸', name: 'IJzer',
+      desc: 'IJzer is essentieel voor het zuurstoftransport in je bloed. Een tekort leidt tot vermoeidheid, bleekheid en concentratieproblemen — veel vrouwen en vegetariërs hebben een tekort.',
+      why: 'Veganisten en vegetariërs hebben een verhoogde kans op ijzertekort, wat jouw energieniveau sterk kan beïnvloeden.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=ijzer+supplement+capsules&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-IJZER' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-IJZER' },
+      ],
+      tags: ['vegetarisch', 'vegan', 'vermoeid', 'weinigGroente']
+    },
+    creatine: {
+      emoji: '💪', name: 'Creatine',
+      desc: 'Creatine is het best onderzochte sportsupplement ter wereld. Het vergroot je kracht, spiermassa en herstelsnelheid bij intensief trainen.',
+      why: 'Met jouw actieve trainingsschema kan creatine je prestaties en herstel aanzienlijk verbeteren.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=creatine+monohydraat&tag=supplementen-21' },
+        { label: '🔴 Body & Fit', cls: 'bodyfit', url: 'BODYFIT-LINK-CREATINE' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-CREATINE' },
+      ],
+      tags: ['sport', 'actief', 'intensief']
+    },
+    proteine: {
+      emoji: '🥛', name: 'Eiwitpoeder (Whey)',
+      desc: 'Voor actieve sporters is voldoende eiwitinname cruciaal voor spierherstel en -opbouw. Eiwitpoeder is een handige aanvulling wanneer voeding tekortschiet.',
+      why: 'Met je intensieve trainingsschema is een goede eiwitinname key — eiwitpoeder helpt je dagelijkse behoefte makkelijk te halen.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=whey+protein+poeder&tag=supplementen-21' },
+        { label: '🔴 Body & Fit', cls: 'bodyfit', url: 'BODYFIT-LINK-PROTEINE' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-PROTEINE' },
+      ],
+      tags: ['sport', 'intensief', 'actief']
+    },
+    bcaa: {
+      emoji: '⚡', name: 'BCAA (aminozuren)',
+      desc: 'Vertakte-keten aminozuren (BCAA) helpen bij spierherstel, verminderen spierpijn na training en voorkomen spierafbraak bij intensief sporten.',
+      why: 'Als intensieve sporter profiteer je van BCAA voor sneller herstel en behoud van spiermassa.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=bcaa+aminozuren+sport&tag=supplementen-21' },
+        { label: '🔴 Body & Fit', cls: 'bodyfit', url: 'BODYFIT-LINK-BCAA' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-BCAA' },
+      ],
+      tags: ['sport', 'intensief', 'actief']
+    },
+    preWorkout: {
+      emoji: '🚀', name: 'Pre-Workout',
+      desc: 'Een pre-workout boost geeft je extra energie, focus en uithoudingsvermogen tijdens de training. Bevat doorgaans cafeïne, beta-alanine en citrulline.',
+      why: 'Jouw sportdoelen en actieve leefstijl passen perfect bij een pre-workout supplement voor maximale trainingsprestaties.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=pre+workout+supplement&tag=supplementen-21' },
+        { label: '🔴 Body & Fit', cls: 'bodyfit', url: 'BODYFIT-LINK-PREWORKOUT' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-PREWORKOUT' },
+      ],
+      tags: ['sport', 'intensief', 'vermoeid', 'energie']
+    },
+    zinkC: {
+      emoji: '🛡️', name: 'Zink & Vitamine C',
+      desc: 'De combinatie van zink en vitamine C is een krachtige ondersteuning voor je immuunsysteem, wondgenezing en weerstand tegen infecties.',
+      why: 'Jouw doel om het immuunsysteem te versterken sluit perfect aan bij deze bewezen combinatie.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=zink+vitamine+c+supplement&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-ZINKC' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-ZINKC' },
+      ],
+      tags: ['immuun', 'weinigGroente', 'nauwelijks']
+    },
+    ashwagandha: {
+      emoji: '🧘', name: 'Ashwagandha',
+      desc: 'Dit adaptogene kruid helpt je lichaam beter om te gaan met stress, verlaagt cortisol en verbetert slaapkwaliteit en mentale helderheid.',
+      why: 'Gezien jouw stressniveau en slaappatroon kan ashwagandha je helpen om meer balans en rust te vinden.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=ashwagandha+capsules&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-ASHWAGANDHA' },
+        { label: '🔴 Body & Fit', cls: 'bodyfit', url: 'BODYFIT-LINK-ASHWAGANDHA' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-ASHWAGANDHA' },
+      ],
+      tags: ['stress', 'slechtSlapen', 'wisselend', 'vermoeid']
+    },
+    melatonine: {
+      emoji: '🌙', name: 'Melatonine',
+      desc: 'Melatonine is het slaaphormoon dat je bioritme reguleert. Het helpt je sneller in slaap te vallen en je slaapkwaliteit te verbeteren zonder verslavend te werken.',
+      why: 'Jouw slaapproblemen kunnen goed reageren op melatonine, dat je lichaam helpt de slaapcyclus te herstellen.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=melatonine+supplement+slaap&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-MELATONINE' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-MELATONINE' },
+      ],
+      tags: ['slaap', 'slechtSlapen', 'wisselend', 'stress']
+    },
+    probiotica: {
+      emoji: '🦠', name: 'Probiotica',
+      desc: 'Probiotica zijn levende bacteriën die je darmflora ondersteunen. Een gezonde darmflora heeft direct effect op je immuunsysteem, energieniveau en zelfs je stemming.',
+      why: 'Een gezonde darm is de basis van alles — probiotica ondersteunen zowel je weerstand als je energieniveau van binnenuit.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=probiotica+capsules&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-PROBIOTICA' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-PROBIOTICA' },
+      ],
+      tags: ['immuun', 'vermoeid', 'alles', 'weinigGroente']
+    },
+    collageen: {
+      emoji: '✨', name: 'Collageen',
+      desc: 'Collageen is het meest voorkomende eiwit in je lichaam en essentieel voor huid, haar, nagels, gewrichten en kraakbeen. Aanmaak neemt af vanaf je 25e.',
+      why: 'Collageen ondersteunt je gewrichten bij intensieve inspanning en draagt bij aan een gezonde huid en sterke nagels.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=collageen+supplement+poeder&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-COLLAGEEN' },
+        { label: '🔴 Body & Fit', cls: 'bodyfit', url: 'BODYFIT-LINK-COLLAGEEN' },
+      ],
+      tags: ['actief', 'intensief', 'sport', 'gewicht']
+    },
+    kurkuma: {
+      emoji: '🌿', name: 'Kurkuma (Curcumine)',
+      desc: 'Kurkuma bevat curcumine, een krachtige ontstekingsremmer en antioxidant. Het ondersteunt gewrichten, spijsvertering en het immuunsysteem.',
+      why: 'Kurkuma is een van de best onderzochte plantaardige supplementen voor algehele gezondheid en ontstekingsremming.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=kurkuma+curcumine+supplement&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-KURKUMA' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-KURKUMA' },
+      ],
+      tags: ['immuun', 'actief', 'intensief', 'alles']
+    },
+    vitB: {
+      emoji: '⚡', name: 'Vitamine B-complex',
+      desc: 'Het B-complex (B1 t/m B12) is essentieel voor energiestofwisseling, zenuwstelsel en aanmaak van rode bloedcellen. Tekorten leiden snel tot vermoeidheid en concentratieproblemen.',
+      why: 'Een B-complex is ideaal als je veel energie verbruikt of regelmatig een middagdip ervaart.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=vitamine+b+complex+supplement&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-BCOMPLEX' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-BCOMPLEX' },
+      ],
+      tags: ['vermoeid', 'middagdip', 'stress', 'nauwelijks', 'weinigGroente']
+    },
+    coQ10: {
+      emoji: '❤️', name: 'Co-enzym Q10',
+      desc: 'Q10 is een krachtige antioxidant die je cellen van energie voorziet. Essentieel voor hart- en spierwerking, en de productie neemt af naarmate je ouder wordt.',
+      why: 'Q10 helpt je cellen efficiënter energie produceren, wat direct merkbaar is in je energieniveau en uithoudingsvermogen.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=co+enzym+q10+supplement&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-Q10' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-Q10' },
+      ],
+      tags: ['vermoeid', 'middagdip', 'energie', 'nauwelijks']
+    },
+    l_carnitine: {
+      emoji: '🔥', name: 'L-Carnitine',
+      desc: 'L-Carnitine transporteert vetzuren naar de mitochondriën waar ze verbrand worden voor energie. Populair bij vetverbranding, uithoudingsvermogen en gewichtsbeheer.',
+      why: 'L-Carnitine ondersteunt je vetverbranding en energieniveau, ideaal als je wilt afvallen of je uithoudingsvermogen wilt verbeteren.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=l-carnitine+supplement&tag=supplementen-21' },
+        { label: '🔴 Body & Fit', cls: 'bodyfit', url: 'BODYFIT-LINK-CARNITINE' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-CARNITINE' },
+      ],
+      tags: ['gewicht', 'sport', 'actief', 'energie']
+    },
+    zink: {
+      emoji: '🔬', name: 'Zink',
+      desc: 'Zink is betrokken bij meer dan 300 enzymatische processen in het lichaam: immuunfunctie, wondgenezing, hormoonbalans en vruchtbaarheid.',
+      why: 'Zink ondersteunt je immuunsysteem en energiestofwisseling — een tekort komt vaker voor dan je denkt.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=zink+supplement+capsules&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-ZINK' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-ZINK' },
+      ],
+      tags: ['immuun', 'vegan', 'vegetarisch', 'weinigGroente']
+    },
+    spirulina: {
+      emoji: '🟢', name: 'Spirulina',
+      desc: 'Spirulina is een blauwgroene alg boordevol eiwitten, ijzer, B-vitamines en antioxidanten. Een van de meest voedingsdichte plantaardige superfoods ter wereld.',
+      why: 'Als vegan of vegetariër is spirulina een uitstekende plantaardige bron van ijzer, eiwit en B-vitamines in één supplement.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=spirulina+tabletten+supplement&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-SPIRULINA' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-SPIRULINA' },
+      ],
+      tags: ['vegan', 'vegetarisch', 'vermoeid', 'immuun']
+    },
+    vitC: {
+      emoji: '🍊', name: 'Vitamine C',
+      desc: 'Vitamine C is een krachtige antioxidant en onmisbaar voor je immuunsysteem, wondgenezing en ijzeropname. Ons lichaam kan het niet zelf aanmaken.',
+      why: 'Met weinig groente en fruit in je dieet loop je een reëel risico op een vitamine C tekort, dat je weerstand direct verzwakt.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=vitamine+c+supplement+1000mg&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-VITC' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-VITC' },
+      ],
+      tags: ['immuun', 'weinigGroente', 'vermoeid']
+    },
+    rhodiola: {
+      emoji: '🌸', name: 'Rhodiola Rosea',
+      desc: 'Rhodiola is een adaptogeen kruid dat bewezen effectief is bij mentale en fysieke vermoeidheid, stress en concentratieproblemen. Populair in Scandinavië al eeuwenlang.',
+      why: 'Rhodiola helpt je lichaam weerstand te bieden aan stress en geeft een natuurlijke energieboost zonder de crash van cafeïne.',
+      shops: [
+        { label: '🛒 Amazon', cls: 'amazon', url: 'https://www.amazon.nl/s?k=rhodiola+rosea+supplement&tag=supplementen-21' },
+        { label: '🔵 Bol.com', cls: 'bol', url: 'BOL-LINK-RHODIOLA' },
+        { label: '🌿 Vitakruid', cls: 'vitakruid', url: 'VITAKRUID-LINK-RHODIOLA' },
+      ],
+      tags: ['stress', 'vermoeid', 'middagdip', 'wisselend']
+    }
+  };
+
+  // ─── SCORE & SHOW RESULTS ───
+  function showResults() {
+    document.getElementById('quizProgress').style.width = '100%';
+
+    // Collect tags from all answers
+    const userTags = Object.values(answers);
+
+    // Score each supplement
+    const scored = Object.entries(supplements).map(([key, s]) => {
+      const score = s.tags.filter(t => userTags.includes(t)).length;
+      return { key, ...s, score };
+    }).filter(s => s.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5);
+
+    // Ensure at least 4 results
+    if (scored.length < 4) {
+      ['vitD', 'multivitamine', 'omega3', 'magnesium'].forEach(k => {
+        if (!scored.find(s => s.key === k)) scored.push({ key: k, ...supplements[k], score: 1 });
+      });
+    }
+
+    const grid = document.getElementById('resultsGrid');
+    grid.innerHTML = scored.slice(0, 5).map(s => `
+      <div class="result-card">
+        <div class="result-card-top">
+          <div class="result-emoji">${s.emoji}</div>
+          <div>
+            <div class="result-name">${s.name}</div>
+            <div class="result-match">✓ Past bij jouw profiel</div>
+          </div>
+        </div>
+        <div class="result-body">
+          <p class="result-desc">${s.desc}</p>
+          <div class="result-why"><strong>Waarom voor jou?</strong>${s.why}</div>
+          <div class="shop-buttons">
+            ${s.shops.map(shop => `
+              <a class="btn-shop ${shop.cls}" href="${shop.url}" target="_blank" rel="noopener sponsored">${shop.label}</a>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // Hide quiz, show results
+    document.getElementById('quiz').style.display = 'none';
+    document.getElementById('results').style.display = 'block';
+    window.scrollTo({ top: document.getElementById('results').offsetTop - 80, behavior: 'smooth' });
+  }
+
+  function retakeQuiz() {
+    // Reset
+    Object.keys(answers).forEach(k => delete answers[k]);
+    document.querySelectorAll('.quiz-opt').forEach(o => o.classList.remove('selected'));
+    document.querySelectorAll('.btn-quiz-next').forEach(b => b.disabled = true);
+    document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step1').classList.add('active');
+    document.getElementById('quizProgress').style.width = '0%';
+    currentStep = 1;
+
+    document.getElementById('results').style.display = 'none';
+    document.getElementById('quiz').style.display = 'block';
+    window.scrollTo({ top: document.getElementById('quiz').offsetTop - 80, behavior: 'smooth' });
+  }
+
+  
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle('open');
+  }
+
+</script>
+</body>
+</html>
