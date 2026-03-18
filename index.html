@@ -569,4 +569,9 @@ function showResults() {
 
   document.getElementById('resultsGrid').innerHTML = html;
   document.getElementById('quiz').style.display = 'none';
-  document.getElementById('results
+  document.getElementById('results').style.display = 'block';
+  window.scrollTo({ top: document.getElementById('results').offsetTop - 80, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
